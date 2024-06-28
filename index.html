@@ -1,0 +1,19 @@
+    <link rel="manifest" href="https://account.japaprize.com/manifest.json" crossorigin="use-credentials" />
+    
+    <script>
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('https://account.japaprize.com/sw.js')
+  }
+  
+  // Requesting permission to display notifications
+if ('Notification' in window && 'serviceWorker' in navigator) {
+  Notification.requestPermission().then(permission => {
+    if (permission === 'granted') {
+      console.log('Notification permission granted.');
+    } else {
+      console.log('Notification permission denied.');
+    }
+  });
+}
+
+</script>
